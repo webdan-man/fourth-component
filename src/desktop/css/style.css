@@ -745,10 +745,14 @@ button {}
     transition: all 0.25s;
 }
 .youtybe:hover{
-    width: 150px;
-    height: 108px;
-    margin-top: -54px;
-    margin-left: -75px;
+    
+width: 150px;
+    
+height: 108px;
+    
+margin-top: -54px;
+    
+margin-left: -75px;
 }
 .sec6 {
     background-image: url(../img/bg_sec6.jpg);
@@ -933,6 +937,11 @@ footer .fone {
     display: inline-block;
     margin-top: 35px;
     width: 100%;
+}
+.timer p span{
+	display: inline-block;
+	width: 58px;
+	text-align: center;
 }
 .timer p {
     font-size: 48px;

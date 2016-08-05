@@ -28,6 +28,28 @@ function opisanie(elem,opis){
         butn_gr.children('.opis').removeClass('active');
     }
 }
+
+//фикс меню старт
+
+function scroll_active_fix_menu(){
+
+    $('.kat_gr a').each(function(index, el) {
+
+        var eTop = $($(this).attr('href')).offset().top;
+
+        var to_top = eTop - $(window).scrollTop();
+
+        if (to_top < $(window).height()/2) {
+           $('.kat_gr a').removeClass('active');
+           $(this).addClass('active'); 
+        }
+
+    });
+
+   //var elem_offst_top =  eTop - $(window).scrollTop();
+}
+
+
 function scroll_fix(){
     var fixed_gran = $('.sec3').offset().top + $('.sec3').height() - $('.katalog').height() - 200;
    
@@ -46,13 +68,80 @@ if ($('.sec3').offset().top > $('body').scrollTop()) {
             $('.katalog').removeClass('fix');
         }
     }
+
+    scroll_active_fix_menu();
 }
-var audio1 = new Audio('audio/audio1.mp3');
-var audio2 = new Audio('audio/audio2.mp3');
+
 
 $(window).scroll(function() {
     scroll_fix();
 });
+
+
+//фикс меню енд
+
+
+
+//timer_start
+
+var next_tick_timeout; //ID setTimeout 
+function init_timer(){
+
+    var time_m_seconds = 1*60*1000;
+
+    var deadline = new Date().getTime()+time_m_seconds;
+
+    clearTimeout(next_tick_timeout);
+
+    tick_timer(deadline);
+
+}
+
+function tick_timer(deadline){
+
+    var now = new Date().getTime();
+
+    var time_m_seconds = deadline - now;
+
+    if (time_m_seconds > 0) {
+
+        //time_m_seconds = time_m_seconds - 25;
+
+        var count_min = Math.floor(time_m_seconds/60/1000);
+        var count_secs = Math.floor((time_m_seconds-count_min*60*1000)/1000);
+        var count_msecs = Math.floor((time_m_seconds-count_min*60*1000-count_secs*1000)/10);
+
+        if (count_min < 10) { count_min = '0'+count_min};
+        if (count_secs < 10) { count_secs = '0'+count_secs};
+        if (count_msecs < 10) { count_msecs = '0'+count_msecs};
+
+        var count_format = '<p><span class="hour">'+count_min+'</span>:<span class="min">'+count_secs+'</span>:<span class="sec">'+count_msecs+'</span></p>';
+
+        var random_tick = Math.floor(Math.random() * (100-50)+50);
+
+        $('.timer p').html(count_format);
+
+        next_tick_timeout = setTimeout(function(){tick_timer(deadline)},random_tick);
+
+    }else{
+
+        var count_format = '<p><span class="hour">00</span>:<span class="min">00</span>:<span class="sec">00</span></p>';
+
+        $('.timer p').html(count_format);
+    }
+
+
+}
+
+//timer_end
+
+
+
+
+var audio1 = new Audio('audio/audio1.mp3');
+var audio2 = new Audio('audio/audio2.mp3');
+
+
 
 $(document).ready(function() {
     
@@ -139,7 +228,7 @@ $("#audio2").mouseleave(function(){
             var data=$(this).serialize();
             $.ajax({type: type, url: url, data: data,
             success : function(){
-                $.arcticmodal('close');$('#pop2').arcticmodal();
+                $.arcticmodal('close');init_timer();$('#pop2').arcticmodal();
             }
         }); 
         }
