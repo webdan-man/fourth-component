@@ -352,6 +352,12 @@ opacity: 1;
 .sound_form form input,.sound_form form button{
     margin: 0 2%;
 }
+form button:hover,.korz:hover{
+    
+background-color: #b3121f;
+    
+transition: all 0.25s;
+}
 ::-webkit-input-placeholder{color: #7c7c7c;}
 ::-moz-placeholder{color: #7c7c7c;}
 :-moz-placeholder{color: #7c7c7c;}
@@ -530,6 +536,7 @@ button {}
     font-size: 18px;
     font-weight: 700;
     padding: 15px 0px 0px 28px;
+    transition: all 0.25s;
 }
 
 .w-wr {
@@ -663,6 +670,8 @@ button {}
     background-color: black;
     border-radius: 10px;
     float: left;
+    transition: all 0.25s;
+    border: 2px solid transparent;
 }
 .vid p{
     font-family: 'Roboto', sans-serif;
@@ -685,7 +694,8 @@ button {}
 }
 .vid:hover .vid_im,.vid.active .vid_im {
     border: 2px solid #c71b1f;
-    background-image: url(../img/youtybe.png)
+    background-image: url(../img/youtybe.png);
+    transition: all 0.25s;
 }
 .video_gr {
     margin-top: 56px
@@ -731,8 +741,15 @@ button {}
     margin-top: -48px;
     margin-left: -69px;
     cursor: pointer;
+    background-size: cover;
+    transition: all 0.25s;
 }
-
+.youtybe:hover{
+    width: 150px;
+    height: 108px;
+    margin-top: -54px;
+    margin-left: -75px;
+}
 .sec6 {
     background-image: url(../img/bg_sec6.jpg);
     height: 819px;
@@ -861,8 +878,9 @@ footer .fone {
 .popap {
     margin: 0 auto;
     background-image: url(../img/popap.jpg);
-    max-width: 722px;
-    width: 100%;
+    width: 722px;
+    /* width: 100%; */
+    /* padding: 0px 20px; */
     max-height: 453px;
     border-radius: 10px;
     -webkit-box-shadow: 0px 0px 43px 0px rgba(73, 73, 75, 0.14);
