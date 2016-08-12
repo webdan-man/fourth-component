@@ -139,6 +139,22 @@ function tick_timer(deadline){
 var audio1 = new Audio('audio/audio1.mp3');
 var audio2 = new Audio('audio/audio2.mp3');
 
+audio1.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
+
+audio2.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
+
+audio1.volume = 0;
+audio2.volume = 0;
+
+audio1.play();
+audio2.play();
+
 
 
 $(document).ready(function() {
@@ -188,17 +204,21 @@ $('.vid').click(function(){
 
 
 $("#audio1").mouseenter(function(){
-     audio1.play();
+    audio1.volume = 1;
+    console.log('1enter');
 });
 $("#audio2").mouseenter(function(){
-    audio2.play();  
+    audio2.volume = 1;
+    console.log('2enter');
 });
 
 $("#audio1").mouseleave(function(){
-     audio1.pause();
+    audio1.volume = 0;
+    console.log('1leave');
 });
 $("#audio2").mouseleave(function(){
-     audio2.pause();
+    audio2.volume = 0;
+    console.log('2leave');
 });
 
   function getURLParameter(name) {return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;} 
