@@ -44,7 +44,7 @@ header {
     display: inline-block;
     width: 248px;
     text-align: left;
-    padding-top: 45px;
+    padding-top: 50px;
     font-size: 15px;
     letter-spacing: 0.3px;
 }
@@ -87,6 +87,7 @@ header {
 	/* padding-top: 367px; */
 	background-size: cover;
 	min-height: 600px;
+	/* height: 600px; */
 }
 h2{
     font-weight: 700;
@@ -101,7 +102,7 @@ h3 {
 }
 .sec1 h3 {
     font-size: 24px;
-    margin-top: 38px
+    margin-top: 38px;
 }
 .sec1 h3 span {
     color: #eabc7f;
@@ -205,11 +206,13 @@ h3 {
     transition: all 0.25s;
     cursor: pointer;
 }
-.sounds:hover,.sounds.active{
-    background-color: rgba(243, 205, 154, 0.21);
+.sounds:hover{
     background-image: url(../img/sound.png);
     background-position: center 37%;
     transition: all 0.25s;
+}
+#audio1{
+	background-color: rgba(243, 205, 154, 0.21);
 }
 .sounds h3 {
     font-size: 22px;
@@ -220,7 +223,7 @@ h3 {
     left: 50%;
     margin-left: -160px;
 }
-.sounds:hover h3,.sounds.active h3{
+.sounds:hover h3{
     color: white;
 }
 .sounds .vizual span{
@@ -229,7 +232,8 @@ opacity: 1;
 }
 .sounds:hover .vizual span{
     -webkit-animation: balls 1s infinite;
- animation: balls 1s infinite;
+    animation: balls 1s infinite;
+    background-color: #ffffff;
 }
 
 @-webkit-keyframes balls {
@@ -458,7 +462,7 @@ button {}
     cursor: pointer;
     transition: all 0.25s;
 }
-.har{
+.opis{
     margin-left: 6px
 }
 .opis:hover, .har:hover,.opis.active, .har.active{
@@ -711,7 +715,14 @@ button {}
     margin-bottom: 50px;
     background-size: cover;
 }
-.video p{
+.gr_vid{
+    width: 100%;
+    position: relative;
+}
+.vid_f{
+    display: none;
+}
+.vid_f, .video p{
     font-size: 36px;
     font-weight: 300;
     color: #fff6eb;
@@ -723,7 +734,7 @@ button {}
     height: 90px;
     width: 330px;
 }
-.video p span {
+.vid_f span, .video p span {
     font-size: 20px;
     line-height: 24px;
     display: inline-block;
@@ -970,8 +981,8 @@ footer .fone {
 .arcticmodal-container_i2{margin:0;border:0;vertical-align:middle}
 .error-input{border:1px solid red}
 #s1s1 {
-    margin-top: 72.3221476510067px;
-    top: 43.946308724832214%;
+    margin-top: 54.241610738255034px;
+    top: 45.95973154362416%;
 }
 .slice {
     position: absolute;
@@ -1382,6 +1393,7 @@ form input, form button{
 }
 .popap{
 	padding-top: 55px;
+	width: 95%;
 }
 .har {
     margin-left: 20px;
@@ -1422,7 +1434,7 @@ form input, form button{
 }
 .video {
     height: 200px;
-    margin-top: 100px;
+    margin-top: 0px;
 }
 .youtybe{
 	background-size: cover;
@@ -1431,11 +1443,21 @@ form input, form button{
 	margin-top: -35px;
 	margin-left: -50px;
 }
-.video p {
+.vid_f {
     top: -15%;
-    width: 280px;
+    width: 100%;
     color: #252525;
     line-height: 16px;
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: 40px;
+    margin-left: 0;
+}
+
+.video p{
+    display: none;
 }
 .zakaz_form input, .zakaz_form button{  margin: 10px 10%;}
 .sec6 {padding-top: 40px;}

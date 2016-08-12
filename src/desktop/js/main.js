@@ -52,16 +52,16 @@ function scroll_active_fix_menu(){
 
 function scroll_fix(){
     var fixed_gran = $('.sec3').offset().top + $('.sec3').height() - $('.katalog').height() - 200;
-   
-if ($('.sec3').offset().top > $('body').scrollTop()) {
+if ($('.sec3').offset().top > $(document).scrollTop()) {
         $('.katalog').addClass('top');
         $('.katalog').removeClass('fix');
         $('.katalog').removeClass('bottom');
     }else{
-        if (fixed_gran > $('body').scrollTop()) {
+        if (fixed_gran > $(document).scrollTop()) {
             $('.katalog').addClass('fix');
             $('.katalog').removeClass('top');
             $('.katalog').removeClass('bottom');
+
         }else{
             $('.katalog').addClass('bottom');
             $('.katalog').removeClass('top');
@@ -87,7 +87,7 @@ $(window).scroll(function() {
 var next_tick_timeout; //ID setTimeout 
 function init_timer(){
 
-    var time_m_seconds = 1*60*1000;
+    var time_m_seconds = 20*60*1000;
 
     var deadline = new Date().getTime()+time_m_seconds;
 
@@ -136,8 +136,6 @@ function tick_timer(deadline){
 //timer_end
 
 
-
-
 var audio1 = new Audio('audio/audio1.mp3');
 var audio2 = new Audio('audio/audio2.mp3');
 
@@ -151,6 +149,10 @@ $(document).ready(function() {
     });
     $('.close,.back').click(function() {
         $(this).parent().arcticmodal('close');
+    });
+    $('.korz').click(function(e) {
+        e.preventDefault();
+        $('#pop3').arcticmodal();
     });
 $('.mouse,.kat_gr a').click(function(e){e.preventDefault();$("html, body").animate({ scrollTop: $($(this).attr('href')).offset().top}, 500);});
 
@@ -184,12 +186,14 @@ $('.vid').click(function(){
     $(this).addClass('active');
   });
 
+
 $("#audio1").mouseenter(function(){
      audio1.play();
 });
 $("#audio2").mouseenter(function(){
-    audio2.play();
+    audio2.play();  
 });
+
 $("#audio1").mouseleave(function(){
      audio1.pause();
 });
